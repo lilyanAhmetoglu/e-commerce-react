@@ -7,3 +7,4 @@ Basically it is full stack e-commerce projects for selling bags worldwide from T
 > * again open another command and access the same route and execute mongo.exe 
 > * in order to test the connection  we need to insert some values using db.test.insert({name:'Lily'})
 > * then get the inserted data using db.test.find()
+> * download Robo 3T and connect to your port and start visualize your database
