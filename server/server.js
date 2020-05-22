@@ -15,10 +15,33 @@ app.use(cookieParser());
 //Models
 const { User } = require("./models/users");
 const { Brand } = require("./models/brands");
+const { Fabric } = require("./models/fabric");
 
 //Middlewares
 const { auth } = require("./middleware/auth");
 const { admin } = require("./middleware/admin"); // we are going to create an admin middleware in order to check the user role
+
+//===========================
+//           FABRIC
+//============================
+
+app.post('/api/product/fabric',auth,admin,(req,res)=>{
+    const fabric  = new Fabric(req.body);
+    fabric.save((err,doc)=>{
+        if(err) return res.json({success:false,err});
+        res.status(200).json({
+            success:true,
+            fabric:doc
+        })
+    })
+});
+
+app.get('/api/product/fabrics',(req,res)=>{
+    Fabric.find({},(err,fabrics)=>{
+        if(err) return res.status(400).send(err);
+        res.status(200).send(fabrics)
+    })
+})
 
 //===========================
 //           BRANDS
