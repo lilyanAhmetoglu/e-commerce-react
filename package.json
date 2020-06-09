@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server/server.js",
-    "server": "nodemon server/server.js"
+    "server": "nodemon server/server.js",
+    "client": "npm run start --prefix client",
+    "dev":"concurrently \"npm run server \" \"npm run client\""
   },
   "author": "",
   "license": "ISC",
@@ -37,5 +39,10 @@
     "redux": "^4.0.5",
     "redux-promise": "^0.6.0",
     "redux-thunk": "^2.3.0"
+  },
+  "proxy":{
+    "/api/":{
+      "target":"http://localhost:3002"
+    }
   }
 }
