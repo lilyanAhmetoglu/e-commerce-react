@@ -8,7 +8,7 @@
     "start": "node server/server.js",
     "server": "nodemon server/server.js",
     "client": "npm run start --prefix client",
-    "dev":"concurrently \"npm run server \" \"npm run client\""
+    "dev": "concurrently \"npm run server \" \"npm run client\""
   },
   "author": "",
   "license": "ISC",
@@ -29,6 +29,8 @@
     "moment": "^2.25.3",
     "mongoose": "^5.9.15",
     "multer": "^1.4.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
     "react-dropzone": "^11.0.1",
     "react-images": "^1.1.7",
     "react-moment": "^0.9.7",
@@ -40,9 +42,9 @@
     "redux-promise": "^0.6.0",
     "redux-thunk": "^2.3.0"
   },
-  "proxy":{
-    "/api/":{
-      "target":"http://localhost:3002"
+  "proxy": {
+    "/api/": {
+      "target": "http://localhost:3002"
     }
   }
 }
