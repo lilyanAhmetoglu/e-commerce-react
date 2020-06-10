@@ -28,7 +28,7 @@ a {
 }
 
 .bck_b_light {
-    background: #999592;
+    background: #6b008b;
 }
 
 .bck_b_dark {
@@ -253,7 +253,7 @@ header {
 header .logo {
     font-family: 'Monoton', cursive;
     color: #ffffff;
-    font-size: 40px;
+    font-size: 30px;
     padding: 11px 0px;
 }
 
