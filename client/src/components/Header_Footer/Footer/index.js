@@ -10,7 +10,7 @@ const Footer = () => {
   return (
     <footer className="bck_b_dark">
       <div className="container">
-        <div className="logo">Kangaroo</div>
+        <div className="logo">Panda</div>
         <div className="wrapper">
           <div className="left">
             <h2>Contact Inforamtion</h2>
