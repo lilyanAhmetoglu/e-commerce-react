@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './Resources/css/styles.css'
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './Resources/css/styles.css'
 
 import Routes from './routes'
 import {BrowserRouter as Router } from  "react-router-dom";

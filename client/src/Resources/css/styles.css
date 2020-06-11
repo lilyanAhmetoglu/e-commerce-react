@@ -5,10 +5,6 @@ body {
     color: #404040;
 }
 
-.container {
-    width:1100px;
-    margin: 0 auto;
-}
 .page_container {
     min-height: 75vh;
     padding-top: 85px;
@@ -336,23 +332,23 @@ footer .right {
     flex: 1;
 }
 
-footer .business_nfo {
+footer .business_info {
     display: flex;
     flex-wrap: wrap;
 }
 
-footer .business_nfo .tag {
+footer .business_info .tag {
     flex-grow: 1;
     position: relative;
     width: 50%;
     margin-bottom: 30px;
 }
-footer .business_nfo .icon {
+footer .business_info .icon {
     position: absolute;
     font-size: 26px;
     top: 10px;
 }
-footer .business_nfo .nfo {
+footer .business_info .info {
     padding-left: 40px;
 }
 
@@ -782,13 +778,13 @@ footer .business_nfo .nfo {
     padding: 0 0 0 29px;
 }
 
-.user_container .user_nfo_panel {
+.user_container .user_info_panel {
     background: #f8f8f8;
     padding: 20px;
     margin-top: 20px;
 }
 
-.user_container .user_nfo_panel h1 {
+.user_container .user_info_panel h1 {
     margin: 0 0 20px 0;
     line-height: 32px;
     text-transform: uppercase;
@@ -796,7 +792,7 @@ footer .business_nfo .nfo {
 }
 
 
-.user_container .user_nfo_panel span{
+.user_container .user_info_panel span{
     display: block;
     font-size: 18px;
     font-weight: 300;
