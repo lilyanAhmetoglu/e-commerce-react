@@ -25,10 +25,5 @@
     "moment": "^2.25.3",
     "mongoose": "^5.9.15",
     "multer": "^1.4.2"
-  },
-  "proxy": {
-    "/api/": {
-      "target": "http://localhost:3002"
-    }
   }
 }
