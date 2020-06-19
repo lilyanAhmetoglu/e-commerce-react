@@ -396,7 +396,7 @@ footer .business_info .info {
 .home_promotion .home_promotion_img {
     height: 400px;
     background-size: cover !important;
-    background-position: top center !important;
+    background-position: bottom center !important;
     padding: 73px;
     box-sizing: border-box;
 }
