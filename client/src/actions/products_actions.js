@@ -1,7 +1,9 @@
 import axios from 'axios';
 import {
     GET_PRODUCTS_BY_SELL,
-    GET_PRODUCTS_BY_ARRIVAL
+    GET_PRODUCTS_BY_ARRIVAL,
+    GET_BRANDS,
+    GET_FABRICS
 } from './types';
 
 import { PRODUCT_SERVER } from '../components/utils/misc';
@@ -24,6 +26,32 @@ export function getProductsByArrival(){
 
     return {
         type: GET_PRODUCTS_BY_ARRIVAL,
+        payload: request
+    }
+}
+////////////////////////////////////
+//////        CATEGORIES
+////////////////////////////////////
+
+
+export function getBrands(){
+
+    const request = axios.get(`${PRODUCT_SERVER}/brands`)
+                .then(response => response.data );
+
+    return {
+        type: GET_BRANDS,
+        payload: request
+    }
+
+}
+
+export function getFabrics(){
+    const request = axios.get(`${PRODUCT_SERVER}/fabrics`)
+    .then(response => response.data );
+
+    return {
+        type: GET_FABRICS,
         payload: request
     }
 }
