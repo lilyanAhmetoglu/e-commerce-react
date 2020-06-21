@@ -4,7 +4,8 @@ import {
     GET_PRODUCTS_BY_ARRIVAL,
     GET_BRANDS,
     GET_FABRICS,
-    GET_CATEGORIES
+    GET_CATEGORIES,
+    GET_PRODUCTS_TO_SHOP
 } from './types';
 
 import { PRODUCT_SERVER } from '../components/utils/misc';
@@ -29,6 +30,32 @@ export function getProductsByArrival(){
         type: GET_PRODUCTS_BY_ARRIVAL,
         payload: request
     }
+}
+
+export function getProductsToShop(skip, limit,filters =[], previousState = []){
+    const data = {
+        limit,
+        skip,
+        filters
+    }
+
+    const request = axios.post(`${PRODUCT_SERVER}/shop`,data)
+                .then(response => {
+                    let newState = [
+                        ...previousState,
+                        ...response.data.articles
+                    ];
+                    return {
+                        size: response.data.size,
+                        articles: newState
+                    }
+                });
+
+    return {
+        type: GET_PRODUCTS_TO_SHOP,
+        payload: request
+    }
+
 }
 ////////////////////////////////////
 //////        CATEGORIES
@@ -66,3 +93,4 @@ export function getCategories(){
         payload: request
     }
 }
+
