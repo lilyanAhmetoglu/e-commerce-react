@@ -15,7 +15,7 @@ class CollapseCheckbox extends Component {
 
     state = {
         open: false,
-        checked: []
+        checked: [] // list of checked items
     }
 
 
@@ -62,21 +62,21 @@ class CollapseCheckbox extends Component {
     )
 
 
-    handleToggle = value => () => {
-        const { checked } = this.state;
+    handleToggle = value => () => { // adding values to checked list or removing on toggle
+        const { checked } = this.state; // checked= this.state.checked
         const currentIndex = checked.indexOf(value);
         const newChecked = [...checked];
 
         if(currentIndex === -1){
             newChecked.push(value)
         } else{
-            newChecked.splice(currentIndex,1)
+            newChecked.splice(currentIndex,1) // 1 means remove one entry
         }
 
         this.setState({
             checked: newChecked
         },()=>{
-            this.props.handleFilters(newChecked)
+            this.props.handleFilters(newChecked) // send the newChecked throw the props back to father component
         })
 
     }

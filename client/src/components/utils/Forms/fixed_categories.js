@@ -1,19 +1,23 @@
-const frets = [
+const colors = [
     {
-        "_id": 20,
-        "name": 20
+        "_id": 0,
+        "name": "Black",
+        "code": "#000000"
     },
     {
-        "_id": 21,
-        "name": 21
+        "_id": 1,
+        "name": "White",
+        "code":"#ffffff"
     },
     {
-        "_id": 22,
-        "name": 22
+        "_id": 2,
+        "name": "Brown",
+        "code":"#7c4700"
     },
     {
-        "_id": 24,
-        "name": 24
+        "_id": 3,
+        "name": "Red",
+        "code":"#d30000"
     },
 ]
 
@@ -52,6 +56,6 @@ const price = [
 
 
 export {
-    frets,
+    colors,
     price
 }

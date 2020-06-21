@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import PageTop from '../utils/page_top';
 
-import { frets,price } from '../utils/Forms/fixed_categories';
+import { price ,colors} from '../utils/Forms/fixed_categories';
 
 import { connect } from 'react-redux';
-import { getBrands, getFabrics } from '../../actions/products_actions';
+import { getBrands, getFabrics ,getCategories} from '../../actions/products_actions';
 
 import CollapseCheckbox from '../utils/collapseCheckbox';
 import CollapseRadio from '../utils/collapseRadio';
@@ -17,8 +17,8 @@ class Shop extends Component {
         skip:0,
         filters:{
             brand:[],
-            frets:[],
-            wood:[],
+            fabric:[],
+            category:[],
             price:[]
         }
     }
@@ -26,6 +26,7 @@ class Shop extends Component {
     componentDidMount(){
         this.props.dispatch(getBrands());
         this.props.dispatch(getFabrics());
+        this.props.dispatch(getCategories());
     }
 
     handlePrice = (value) => {
@@ -42,7 +43,7 @@ class Shop extends Component {
 
 
     handleFilters = (filters,category) => {
-       const newFilters = {...this.state.filters}
+       const newFilters = {...this.state.filters} // on change for all checkboxes and radios will be saved in the filter state 
        newFilters[category] = filters;
 
         if(category === "price"){
@@ -61,7 +62,7 @@ class Shop extends Component {
         return (
             <div>
                 <PageTop
-                    title="Browse Products"
+                    title="Browse Bags"
                 />
                 <div className="container">
                     <div className="shop_wrapper">
@@ -73,10 +74,16 @@ class Shop extends Component {
                                 handleFilters={(filters)=> this.handleFilters(filters,'brand')}
                             />
                              <CollapseCheckbox
-                                initState={false}
+                                initState={true}
                                 title="Categories"
-                                list={frets}
-                                handleFilters={(filters)=> this.handleFilters(filters,'frets')}
+                                list={products.categories}
+                                handleFilters={(filters)=> this.handleFilters(filters,'category')} // getting filters from handlerFilters from children compnent
+                            />
+                             <CollapseRadio
+                                initState={true}
+                                title="Price"
+                                list={price}
+                                handleFilters={(filters)=> this.handleFilters(filters,'price')}
                             />
                             <CollapseCheckbox
                                 initState={false}
@@ -85,11 +92,12 @@ class Shop extends Component {
                                 handleFilters={(filters)=> this.handleFilters(filters,'fabric')}
                             />
                              <CollapseRadio
-                                initState={true}
-                                title="Price"
-                                list={price}
+                                initState={false}
+                                title="Color"
+                                list={colors}
                                 handleFilters={(filters)=> this.handleFilters(filters,'price')}
                             />
+                            
                            
                         </div>
                         <div className="right">

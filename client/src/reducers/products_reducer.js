@@ -2,7 +2,8 @@ import {
   GET_PRODUCTS_BY_SELL,
   GET_PRODUCTS_BY_ARRIVAL,
   GET_BRANDS,
-  GET_FABRICS
+  GET_FABRICS,
+  GET_CATEGORIES
 } from "../actions/types";
 
 export default function (state = {}, action) {
@@ -15,6 +16,8 @@ export default function (state = {}, action) {
       return { ...state, brands: action.payload };
     case GET_FABRICS:
       return { ...state, fabrics: action.payload };
+    case GET_CATEGORIES:
+      return { ...state, categories: action.payload };
     default:
       return state;
   }

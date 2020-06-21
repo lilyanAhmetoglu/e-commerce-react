@@ -3,7 +3,8 @@ import {
     GET_PRODUCTS_BY_SELL,
     GET_PRODUCTS_BY_ARRIVAL,
     GET_BRANDS,
-    GET_FABRICS
+    GET_FABRICS,
+    GET_CATEGORIES
 } from './types';
 
 import { PRODUCT_SERVER } from '../components/utils/misc';
@@ -52,6 +53,16 @@ export function getFabrics(){
 
     return {
         type: GET_FABRICS,
+        payload: request
+    }
+}
+
+export function getCategories(){
+    const request = axios.get(`${PRODUCT_SERVER}/categories`)
+    .then(response => response.data );
+
+    return {
+        type: GET_CATEGORIES,
         payload: request
     }
 }

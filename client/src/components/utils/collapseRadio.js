@@ -83,6 +83,7 @@ class CollapseRadio extends Component {
                                 name="prices"
                                 value={this.state.value}
                                 onChange={this.handleChange}
+
                             >
                                 { this.renderList() }
                             </RadioGroup>
