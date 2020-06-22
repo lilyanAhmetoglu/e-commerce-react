@@ -5,6 +5,8 @@ import {
   GET_FABRICS,
   GET_CATEGORIES,
   GET_PRODUCTS_TO_SHOP,
+  ADD_PRODUCT,
+  CLEAR_PRODUCT
 } from "../actions/types";
 
 export default function (state = {}, action) {
@@ -25,6 +27,10 @@ export default function (state = {}, action) {
         toShop: action.payload.articles,
         toShopSize: action.payload.size,
       };
+    case ADD_PRODUCT:
+      return { ...state, addProduct: action.payload };
+    case CLEAR_PRODUCT:
+      return { ...state, addProduct: action.payload };
     default:
       return state;
   }
