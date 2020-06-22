@@ -17,6 +17,11 @@ const productSchema = mongoose.Schema({
     type: Number,
     maxlength: 255,
   },
+  color: {
+    required: true,
+    type: String,
+    maxlength: 255,
+  },
   brand: {
     type: Schema.Types.ObjectId,
     ref: "Brand",

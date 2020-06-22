@@ -516,7 +516,7 @@ footer .business_info .info {
 }
 
 .card_item_wrapper.grid_bars .image {
-    width: 420px;
+    width: 250px;
     height: 211px;
     border: none;
 
@@ -762,6 +762,7 @@ footer .business_info .info {
 
 .user_container .user_left_nav {
     border-right: 1px solid #f8f8f8; 
+    padding-top: 30px;
 }
 
 .user_container .user_left_nav .links a {
