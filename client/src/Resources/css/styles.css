@@ -870,11 +870,12 @@ footer .business_info .info {
 .dropzone {
     border: 1px solid #e5e5e5;
     margin-bottom: 40px;
+    width: 50%;
 }
 
 .dropzone_box {
     float: left;
-    width: 25%;
+    width: 100%;
     height: 160px;
     padding: 10px;
     box-sizing: border-box;

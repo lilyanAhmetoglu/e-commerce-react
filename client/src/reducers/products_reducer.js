@@ -2,11 +2,12 @@ import {
   GET_PRODUCTS_BY_SELL,
   GET_PRODUCTS_BY_ARRIVAL,
   GET_BRANDS,
+  ADD_BRAND,
   GET_FABRICS,
   GET_CATEGORIES,
   GET_PRODUCTS_TO_SHOP,
   ADD_PRODUCT,
-  CLEAR_PRODUCT
+  CLEAR_PRODUCT,
 } from "../actions/types";
 
 export default function (state = {}, action) {
@@ -17,6 +18,12 @@ export default function (state = {}, action) {
       return { ...state, byArrival: action.payload };
     case GET_BRANDS:
       return { ...state, brands: action.payload };
+    case ADD_BRAND:
+      return {
+        ...state,
+        addBrand: action.payload.success,
+        brands: action.payload.brands,
+      };
     case GET_FABRICS:
       return { ...state, fabrics: action.payload };
     case GET_CATEGORIES:
