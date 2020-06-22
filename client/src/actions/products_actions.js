@@ -5,7 +5,9 @@ import {
     GET_BRANDS,
     GET_FABRICS,
     GET_CATEGORIES,
-    GET_PRODUCTS_TO_SHOP
+    GET_PRODUCTS_TO_SHOP,
+    ADD_PRODUCT,
+    CLEAR_PRODUCT
 } from './types';
 
 import { PRODUCT_SERVER } from '../components/utils/misc';
@@ -57,6 +59,25 @@ export function getProductsToShop(skip, limit,filters =[], previousState = []){
     }
 
 }
+
+export function addProduct(datatoSubmit){
+
+    const request = axios.post(`${PRODUCT_SERVER}/article`,datatoSubmit)
+                    .then(response => response.data);
+
+    return {
+        type: ADD_PRODUCT,
+        payload: request
+    }
+}
+
+export function clearProduct(){
+    return {
+        type: CLEAR_PRODUCT,
+        payload: ''
+    }
+}
+
 ////////////////////////////////////
 //////        CATEGORIES
 ////////////////////////////////////

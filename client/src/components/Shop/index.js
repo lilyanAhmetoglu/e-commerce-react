@@ -13,7 +13,10 @@ import {
 
 import CollapseCheckbox from "../utils/collapseCheckbox";
 import CollapseRadio from "../utils/collapseRadio";
-
+import LoadmoreCards from './loadmoreCards';
+import {FontAwesomeIcon }from '@fortawesome/react-fontawesome';
+import {faBars} from '@fortawesome/free-solid-svg-icons/faBars';
+import {faTh} from '@fortawesome/free-solid-svg-icons/faTh';
 class Shop extends Component {
   state = {
     grid: "",
@@ -24,6 +27,7 @@ class Shop extends Component {
       fabric: [],
       category: [],
       price: [],
+      color: [],
     },
   };
 
@@ -47,7 +51,6 @@ class Shop extends Component {
     }
     return array;
   };
-
   handleFilters = (filters, category) => {
     const newFilters = { ...this.state.filters }; // on change for all checkboxes and radios will be saved in the filter state
     newFilters[category] = filters;
@@ -56,15 +59,48 @@ class Shop extends Component {
       let priceValues = this.handlePrice(filters);
       newFilters[category] = priceValues;
     }
+    this.showFilteredResults(newFilters); // trigger the new filers in the state after changing
 
     this.setState({
       filters: newFilters,
     });
   };
 
+  showFilteredResults = (filters) =>{
+    this.props.dispatch(getProductsToShop(
+        0,
+        this.state.limit,
+        filters
+    )).then(()=>{
+        this.setState({
+            skip:0
+        })
+    })
+}
+
+loadMoreCards = () => {
+    let skip = this.state.skip + this.state.limit;
+
+    this.props.dispatch(getProductsToShop(
+        skip,
+        this.state.limit,
+        this.state.filters,
+        this.props.products.toShop
+    )).then(()=>{
+        this.setState({
+            skip
+        })
+    })
+}
+
+handleGrid= () =>{
+    this.setState({
+        grid: !this.state.grid ? 'grid_bars':''
+    })
+}
   render() {
-    console.log(this.state.filters);
     const products = this.props.products;
+    console.log(this.state.filters);
     return (
       <div>
         <PageTop title="Browse Bags" />
@@ -97,22 +133,48 @@ class Shop extends Component {
               />
               <CollapseCheckbox
                 initState={false}
-                title="fabrics"
+                title="Fabrics"
                 list={products.fabrics}
                 handleFilters={(filters) =>
                   this.handleFilters(filters, "fabric")
                 }
               />
-              <CollapseRadio
+              <CollapseCheckbox
                 initState={false}
-                title="Color"
+                title="Colors"
                 list={colors}
                 handleFilters={(filters) =>
-                  this.handleFilters(filters, "price")
+                  this.handleFilters(filters, "color")
                 }
               />
             </div>
-            <div className="right">right</div>
+            <div className="right">
+              <div className="shop_options">
+                <div className="shop_grids clear">
+                  <div
+                    className={`grid_btn ${this.state.grid ? "" : "active"}`}
+                    onClick={() => this.handleGrid()}
+                  >
+                    <FontAwesomeIcon icon={faTh} />
+                  </div>
+                  <div
+                    className={`grid_btn ${!this.state.grid ? "" : "active"}`}
+                    onClick={() => this.handleGrid()}
+                  >
+                    <FontAwesomeIcon icon={faBars} />
+                  </div>
+                </div>
+              </div>
+              <div style={{ clear: "both" }}>
+                <LoadmoreCards
+                  grid={this.state.grid}
+                  limit={this.state.limit}
+                  size={products.toShopSize}
+                  products={products.toShop}
+                  loadMore={() => this.loadMoreCards()}
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>
