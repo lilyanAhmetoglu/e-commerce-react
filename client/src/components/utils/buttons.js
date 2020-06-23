@@ -9,7 +9,11 @@ const MyButton = (props) => {
     switch (props.type) {
       case "default":
         template = (
-          <Link className={!props.altClass ? 'link_default': props.altClass }   to={props.linkTo} {...props.addStyles}>
+          <Link
+            className={!props.altClass ? "link_default" : props.altClass}
+            to={props.linkTo}
+            {...props.addStyles}
+          >
             {props.title}
           </Link>
         );
@@ -23,6 +27,19 @@ const MyButton = (props) => {
             }}
           >
             <FontAwesomeIcon icon={faShoppingBag} />
+          </div>
+        );
+        break;
+      case "add_to_cart_link":
+        template = (
+          <div
+            className="add_to_cart_link"
+            onClick={() => {
+              props.runAction();
+            }}
+          >
+            <FontAwesomeIcon icon={faShoppingBag} />
+            Add to cart
           </div>
         );
         break;

@@ -4,10 +4,14 @@ import {
   GET_BRANDS,
   ADD_BRAND,
   GET_FABRICS,
+  ADD_FABRIC,
   GET_CATEGORIES,
+  ADD_CATEGORY,
   GET_PRODUCTS_TO_SHOP,
   ADD_PRODUCT,
   CLEAR_PRODUCT,
+  GET_PRODUCT_DETAIL,
+  CLEAR_PRODUCT_DETAIL,
 } from "../actions/types";
 
 export default function (state = {}, action) {
@@ -26,8 +30,20 @@ export default function (state = {}, action) {
       };
     case GET_FABRICS:
       return { ...state, fabrics: action.payload };
+    case ADD_FABRIC:
+      return {
+        ...state,
+        addFabric: action.payload.success,
+        fabrics: action.payload.fabrics,
+      };
     case GET_CATEGORIES:
       return { ...state, categories: action.payload };
+    case ADD_CATEGORY:
+      return {
+        ...state,
+        addCategory: action.payload.success,
+        categories: action.payload.categories,
+      };
     case GET_PRODUCTS_TO_SHOP:
       return {
         ...state,
@@ -38,6 +54,10 @@ export default function (state = {}, action) {
       return { ...state, addProduct: action.payload };
     case CLEAR_PRODUCT:
       return { ...state, addProduct: action.payload };
+    case GET_PRODUCT_DETAIL:
+      return { ...state, prodDetail: action.payload };
+    case CLEAR_PRODUCT_DETAIL:
+      return { ...state, prodDetail: action.payload };
     default:
       return state;
   }
