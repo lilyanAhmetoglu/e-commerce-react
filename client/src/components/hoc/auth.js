@@ -19,16 +19,14 @@ export default function (ComposedClass, reload, adminRoute = null) {
                 }
             }else{
                 if(adminRoute && !user.isAdmin){
-                    this.props.history.push('user/dashboard')
+                    this.props.history.push('/user/dashboard')
                 }else
                 { // not admin
                     if(reload=== false){
                         this.props.history.push('/user/dashboard')
                     }
-
                 }
             }
-
             this.setState({
                 loading:false
             })
