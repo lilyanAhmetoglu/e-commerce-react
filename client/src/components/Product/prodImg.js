@@ -69,10 +69,6 @@ class ProdImg extends Component {
     }
 
     render() {
-        console.log(this.state.lightbox)
-        console.log(this.state.lightboxImages)
-        console.log(this.state.open)
-        console.log(this.state.imagePos)
         const {detail} = this.props;
         return (
             <div className="product_image_container">
