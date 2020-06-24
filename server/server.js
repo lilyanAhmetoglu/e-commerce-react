@@ -28,6 +28,7 @@ const { Fabric } = require("./models/fabric");
 const { Product } = require("./models/products");
 const { Payment } = require("./models/payment");
 const { Category } = require("./models/category");
+const { Site } = require('./models/site');
 //Middlewares
 const { auth } = require("./middleware/auth");
 const { admin } = require("./middleware/admin"); // we are going to create an admin middleware in order to check the user role
@@ -453,6 +454,35 @@ app.post('/api/users/update_profile',auth,(req,res)=>{
       }
   );
 });
+
+
+//=================================
+//              SITE
+//=================================
+
+app.get('/api/site/site_data',(req,res)=>{
+  Site.find({},(err,site)=>{
+      if(err) return res.status(400).send(err);
+      res.status(200).send(site[0].siteInfo)
+  });
+});
+
+app.post('/api/site/site_data',auth,admin,(req,res)=>{
+  Site.findOneAndUpdate(
+      { name: 'Site'},
+      { "$set": { siteInfo: req.body }},
+      { new: true },
+      (err,doc )=>{
+          if(err) return res.json({success:false,err});
+          return res.status(200).send({
+              success: true,
+              siteInfo: doc.siteInfo
+          })
+      }
+  )
+})
+
+
 const port = process.env.PORT || 3002;
 
 app.listen(port, () => {

@@ -334,6 +334,7 @@ footer .right {
 }
 
 footer .business_info {
+    margin-top: 30px;
     display: flex;
     flex-wrap: wrap;
 }
