@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFrown } from "@fortawesome/free-solid-svg-icons/faFrown";
 import { faSmile } from "@fortawesome/free-solid-svg-icons/faSmile";
 
-import { getCartItems, removeCartItem } from "../../actions/user_actions";
+import { getCartItems, removeCartItem ,onSuccessBuy} from "../../actions/user_actions";
 
 import Paypal from "../utils/paypal";
 class UserCart extends Component {
@@ -77,9 +77,16 @@ class UserCart extends Component {
   };
 
   transactionSuccess = (data) => {
-    this.setState({
-        showTotal:false,
-        showSuccess:true
+    this.props.dispatch(onSuccessBuy({
+        cartDetail: this.props.user.cartDetail,
+        paymentData: data
+    })).then(()=>{
+        if(this.props.user.successBuy){
+            this.setState({
+                showTotal : false ,
+                showSuccess: true
+            })
+        }
     })
   };
   render() {
