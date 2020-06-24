@@ -50,6 +50,10 @@ export default function (state = {}, action) {
         },
         cartDetail: action.payload.cartDetail,
       };
+    case UPDATE_DATA_USER:
+      return { ...state, updateUser: action.payload };
+    case CLEAR_UPDATE_USER_DATA:
+      return { ...state, updateUser: action.payload };
     default:
       return state;
   }
