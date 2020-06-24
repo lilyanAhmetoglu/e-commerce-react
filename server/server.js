@@ -9,7 +9,7 @@ const cloudinary = require("cloudinary");
 
 const app = express();
 mongoose.Promise = global.Promise;
-mongoose.connect(process.env.DATABASE);
+mongoose.connect(process.env.MONGODB_URI);
 
 app.use(bodyParser.urlencoded({ extended: true })); // using middleware from query string
 app.use(bodyParser.json());
