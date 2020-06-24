@@ -8,8 +8,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFrown } from "@fortawesome/free-solid-svg-icons/faFrown";
 import { faSmile } from "@fortawesome/free-solid-svg-icons/faSmile";
 
-import { getCartItems, removeCartItem } from "../../actions/user_actions";
+import { getCartItems, removeCartItem ,onSuccessBuy} from "../../actions/user_actions";
 
+import Paypal from "../utils/paypal";
 class UserCart extends Component {
   state = {
     loading: true,
@@ -67,7 +68,27 @@ class UserCart extends Component {
       <div>You have no items</div>
     </div>
   );
+  transactionError = (data) => {
+    console.log("Paypal error");
+  };
 
+  transactionCanceled = () => {
+    console.log("Transaction cancled");
+  };
+
+  transactionSuccess = (data) => {
+    this.props.dispatch(onSuccessBuy({
+        cartDetail: this.props.user.cartDetail,
+        paymentData: data
+    })).then(()=>{
+        if(this.props.user.successBuy){
+            this.setState({
+                showTotal : false ,
+                showSuccess: true
+            })
+        }
+    })
+  };
   render() {
     return (
       <UserLayout>
@@ -95,6 +116,16 @@ class UserCart extends Component {
               this.showNoItemMessage()
             )}
           </div>
+          {this.state.showTotal ? (
+            <div className="paypal_button_container">
+              <Paypal
+                toPay={this.state.total}
+                transactionError={(data) => this.transactionError(data)}
+                transactionCanceled={(data) => this.transactionCanceled(data)}
+                onSuccess={(data) => this.transactionSuccess(data)}
+              />
+            </div>
+          ) : null}
         </div>
       </UserLayout>
     );

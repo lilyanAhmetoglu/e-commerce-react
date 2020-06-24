@@ -334,6 +334,7 @@ footer .right {
 }
 
 footer .business_info {
+    margin-top: 30px;
     display: flex;
     flex-wrap: wrap;
 }
@@ -892,4 +893,8 @@ footer .business_info .info {
     background-size: contain !important;
     background-position: center center !important;
     border: 1px solid #eaeaea;
+}
+
+.history_blocks{
+    margin-top: 20px;
 }
