@@ -138,7 +138,7 @@ const welcome = () => {
 <div style="color:#55463e;font-family:Georgia, Times, 'Times New Roman', serif;line-height:1.2;padding-top:45px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
 <div style="font-size: 12px; line-height: 1.2; font-family: Georgia, Times, 'Times New Roman', serif; color: #55463e; mso-line-height-alt: 14px;">
 <p style="font-size: 58px; line-height: 1.2; text-align: center; word-break: break-word; font-family: Georgia, Times, Times New Roman, serif; mso-line-height-alt: 70px; margin: 0;"><span style="font-size: 58px;"><strong>Welcome to</strong></span></p>
-<p style="font-size: 58px; line-height: 1.2; text-align: center; word-break: break-word; font-family: Georgia, Times, Times New Roman, serif; mso-line-height-alt: 70px; margin: 0;"><span style="font-size: 58px;"><strong>PANDA</strong></span></p>
+<p style="font-size: 58px; line-height: 1.2; text-align: center; word-break: break-word; font-family: Georgia, Times, Times New Roman, serif; mso-line-height-alt: 70px; margin: 0;"><span style="font-size: 58px;"><strong>Istanbul Market</strong></span></p>
 </div>
 </div>
 <!--[if mso]></td></tr></table><![endif]-->
@@ -186,7 +186,7 @@ const welcome = () => {
 <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 0px; padding-bottom: 10px; font-family: Arial, sans-serif"><![endif]-->
 <div style="color:#FFFFFF;font-family:Arial, Helvetica Neue, Helvetica, sans-serif;line-height:1.5;padding-top:0px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
 <div style="font-size: 12px; line-height: 1.5; color: #FFFFFF; font-family: Arial, Helvetica Neue, Helvetica, sans-serif; mso-line-height-alt: 18px;">
-<p style="font-size: 14px; line-height: 1.5; text-align: center; word-break: break-word; mso-line-height-alt: 21px; margin: 0;"><span style="color: #ff6600; font-size: 14px;"><strong>PANDA BAGS</strong></span> //  your best place to get your bag</p>
+<p style="font-size: 14px; line-height: 1.5; text-align: center; word-break: break-word; mso-line-height-alt: 21px; margin: 0;"><span style="color: #ff6600; font-size: 14px;"><strong>Istanbul Market</strong></span> //  your best place to get your bag</p>
 </div>
 </div>
 <!--[if mso]></td></tr></table><![endif]-->

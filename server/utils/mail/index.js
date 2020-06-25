@@ -9,7 +9,7 @@ const getEmailData = (to, name, token, template) => {
   switch (template) {
     case "welcome":
       data = {
-        from: "Panda Pags <xinonlab@gmail.com>",
+        from: "Istanbul Market <stnblmarket@gmail.com>",
         to,
         subject: `Welcome to panda ${name}` ,
         html: welcome(),
@@ -25,7 +25,7 @@ const sendEmail = (to, name, token, type) => {
   const smptTransport = mailer.createTransport({
     service: "Gmail",
     auth: {
-      user: "xinonlab@gmail.com",
+      user: "stnblmarket@gmail.com",
       pass: process.env.EMAIL_PASS,
     },
   });
