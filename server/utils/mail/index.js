@@ -11,7 +11,7 @@ const getEmailData = (to, name, token, template) => {
       data = {
         from: "Istanbul Market <stnblmarket@gmail.com>",
         to,
-        subject: `Welcome to panda ${name}` ,
+        subject: `Welcome to Istanbul Market ${name}` ,
         html: welcome(),
       };
       break;
