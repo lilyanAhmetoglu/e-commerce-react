@@ -156,7 +156,7 @@ const welcome = () => {
 </div>
 <!--<![endif]-->
 <div align="center" class="img-container center fixedwidth" style="padding-right: 0px;padding-left: 0px;">
-<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]--><img align="center" alt="Image" border="0" class="center fixedwidth" src="images/bags.jpg" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; width: 100%; max-width: 487px; display: block;" title="Image" width="487"/>
+<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]--><img align="center" alt="Image" border="0" class="center fixedwidth" src="https://res.cloudinary.com/dlz5amxe9/image/upload/v1593086028/1c27118961e6814b997aed782cca0c6c_ducmzw.jpg" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: auto; border: 0; width: 100%; max-width: 487px; display: block;" title="Image" width="487"/>
 <!--[if mso]></td></tr></table><![endif]-->
 </div>
 <div align="center" class="button-container" style="padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
