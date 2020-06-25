@@ -6,6 +6,7 @@ const async = require("async");
 require("dotenv").config(); // dealing with env parameteres
 const formidable = require("express-formidable");
 const cloudinary = require("cloudinary");
+const mailer = require('nodemailer')
 
 const app = express();
 mongoose.Promise = global.Promise;
@@ -34,6 +35,13 @@ const { Site } = require('./models/site');
 //Middlewares
 const { auth } = require("./middleware/auth");
 const { admin } = require("./middleware/admin"); // we are going to create an admin middleware in order to check the user role
+
+
+//Email services
+//UTILS
+
+const {sendEmail } = require('./utils/mail/index')
+
 
 //===========================
 //           PRODUCTS
@@ -227,6 +235,7 @@ app.post("/api/users/register", (req, res) => {
   const user = new User(req.body);
   user.save((err, doc) => {
     if (err) return res.json({ success: false, err });
+    sendEmail(doc.email, doc.name,null,"welcome")
     res.status(200).json({
       success: true,
       userdata: doc,
