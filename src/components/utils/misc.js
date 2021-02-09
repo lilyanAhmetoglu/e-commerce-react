@@ -1,0 +1,3 @@
+// SERVER ROTES
+
+export const USER_SERVER = '/api/users';
