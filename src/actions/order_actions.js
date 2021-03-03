@@ -16,7 +16,7 @@ export function getActiveOrders() {
   };
 }
 
-export function getDoneOrders() {
+export function getِDoneOrders() {
   const request = axios
     .get(`${ORDER_SERVER}?shipped=true`)
     .then((response) =>{
@@ -26,6 +26,17 @@ export function getDoneOrders() {
     });
   return {
     type: GET_DONE_ORDER,
+    payload: request,
+  };
+}
+
+export function addOrder(datatoSubmit) {
+  const request = axios
+    .post(`${ORDER_SERVER}/`, datatoSubmit)
+    .then((response) => response.data);
+
+  return {
+    type: ADD_ORDER,
     payload: request,
   };
 }

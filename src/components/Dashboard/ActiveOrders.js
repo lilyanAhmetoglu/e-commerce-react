@@ -3,6 +3,7 @@ import UserLayout from "../Home/UserLayout";
 import { Table, Button } from "react-bootstrap";
 import { connect } from "react-redux";
 import { getActiveOrders } from "../../actions/order_actions";
+import { Link } from "react-router-dom";
 
 class ActiveOrders extends Component {
   showActiveOrders = () =>
@@ -21,12 +22,13 @@ class ActiveOrders extends Component {
     this.props.dispatch(getActiveOrders());
   }
   render() {
-    console.log(this.props.orders.articles)
     return (
       <UserLayout>
+         <Link to="/add-orders">
         <Button className="buttons" variant="success">
           + اضافة طلب
         </Button>
+        </Link>
         <Table striped bordered hover size="sm" responsive>
           <thead>
             <tr>
